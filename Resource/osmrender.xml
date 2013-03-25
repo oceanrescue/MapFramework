@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- old values -->
+<!-- 
+ <rules  background-coastline="#f1eee8"
+ background-water="#cadfff">
+ -->
+
+<rules  background-coastline="#f9f3dd"
+        background-water="#9fd7f3">
+
+	<!-- ways -->
+	<rule e="way" k="*" v="*">
+
+		<!-- natural -->
+		<rule e="way" k="natural" v="*">
+			<rule e="way" k="natural" v="coastline" closed="yes" special-points="yes">
+				<area fill="#f9f3dd"/>
+			</rule>
+			<rule e="way" k="natural" v="glacier" zoom-min="10">
+				<area fill="#fafaff" stroke="#add8e6" stroke-width="0.8" />
+			</rule>   
+            <rule e="way" k="name" v="*" zoom-min="8">
+                <caption k="name" font-size="15" fill="#000000" stroke="#fbfbfb" stroke-width="0.5" />
+            </rule>
+		</rule>            
+
+		<!-- waterways -->
+		<rule e="way" k="waterway" v="*">
+			<rule e="way" k="waterway" v="canal" zoom-min="10">
+				<line stroke="#cadfff" stroke-width="1.0" />
+                <line stroke="#cadfff" stroke-width="0.8" />
+			</rule>
+
+            <rule e="way" k="waterway" v="river" zoom-min="8">
+				<line stroke="#9fd7f3" stroke-width="1.0"/>
+			</rule>
+
+			<rule e="way" k="waterway" v="riverbank" zoom-min="10">
+				<area fill="#cadfff" />
+			</rule>
+		</rule>
+
+
+		<!-- military -->
+		<rule e="way" k="military" v="*" zoom-min="10">
+			<area src="military.png" stroke="#e4e4e4" stroke-width="0.2" />
+		</rule>
+
+
+		<rule e="way" k="natural" v="water">
+			<area fill="#9fd7f3" />
+		</rule>
+
+		
+	</rule>
+
+
+	<!-- ways -->
+    <!-- old values -->
+    <!-- 
+             <line stroke="#707070" stroke-width="1.8" stroke-linecap="butt" />
+     -->
+	<rule e="way" k="*" v="*">
+		
+        <rule e="way" k="highway" v="*" zoom-min="8">
+            <rule e="way" k="highway" v="primary">
+                <line stroke="#fbfbfb" stroke-width="1.8" stroke-linecap="butt" />
+            </rule>
+            <rule e="way" k="highway" v="trunk" zoom-min="11">
+                <line stroke="#fbfbfb" stroke-width="1.8" stroke-linecap="butt" />
+            </rule>
+            <rule e="way" k="highway" v="motorway">
+                <line stroke="#fbfbfb" stroke-width="2.0" stroke-linecap="butt" />
+            </rule>
+        </rule>
+		
+
+		<!-- non-physical routes -->
+		<rule e="way" k="route" v="ferry">
+			<line stroke="#fbfbfb" stroke-width="0.3" stroke-dasharray="15,10" stroke-linecap="butt" />
+		</rule>
+
+
+		<!-- non-physical boundaries -->
+		<rule e="way" k="admin_level" v="*" zoom-min="2">
+			<rule e="way" k="boundary" v="national_park">
+				<line stroke="#4ef94b" stroke-width="0.25" />
+			</rule>
+			<rule e="way" k="admin_level" v="*">
+				<rule e="way" k="admin_level" v="*">
+					<rule e="way" k="admin_level" v="6" zoom-min="6">
+						<line stroke="#CC99CC" stroke-width="0.8"  />
+					</rule>
+					<rule e="way" k="admin_level" v="4" zoom-min="5">
+						<line stroke="#CC99CC" stroke-width="0.8"/>
+					</rule>
+					<rule e="way" k="admin_level" v="2" zoom-min="2">
+						<line stroke="#CC99CC" stroke-width="0.8"  />
+					</rule>
+				</rule>
+			</rule>
+		</rule>
+		
+		<rule e="way" k="historic" v="wreck" zoom-min="11">
+			<caption k="name" font-size="10" fill="#4040ff" stroke="#fbfbfb" stroke-width="0.5" />
+		</rule>
+                
+	</rule>
+
+
+	<!-- nodes  -->
+	<rule e="node" k="*" v="*">		
+		<!-- historic -->
+		<rule e="node" k="historic" v="*" zoom-min="9">
+			<circle r="3" fill="#4040ff" stroke="#606060" stroke-width="1.5" />
+
+			<rule e="node" k="*" v="*" zoom-min="10">
+				<caption k="name" dy="15" font-size="11" fill="#4040ff" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+		</rule>
+        
+		<!-- natural -->
+		<rule e="node" k="natural" v="*">
+			<rule e="node" k="natural" v="peak" zoom-min="11">
+				<symbol src="peak.png" />
+				<caption k="ele" dy="20" font-size="12" fill="#000000" stroke="#fbfbfb" stroke-width="1.0" />
+                <caption k="mountain_pass" dy="40" font-size="15" fill="#000000" stroke="#fbfbfb" stroke-width="1.0" />
+                <caption k="name" font-size="15" fill="#000000" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+			<rule e="node" k="natural" v="volcano" zoom-min="11">
+				<symbol src="vulcan.png" />
+                <caption k="name" font-size="15" fill="#000000" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+            <rule e="node" k="natural" v="bay|bedrock" zoom-min="11">
+				<caption k="name" font-size="17" fill="#000000" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+            <rule e="node" k="natural" v="cliff" zoom-min="10">
+				<symbol src="cliff.png" />
+                <caption k="name" font-size="15" fill="#000000" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+		</rule>
+
+		<!-- place -->
+		<rule e="node" k="place" v="*">
+			<rule e="node" k="place" v="town" zoom-min="9">
+				<caption k="name" font-size="22" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+            <rule e="node" k="place" v="village" zoom-min="8">
+				<caption k="name" font-size="20" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+			<rule e="node" k="place" v="island" zoom-min="5">
+				<caption k="name" font-size="18" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+			<rule e="node" k="place" v="city" zoom-min="7" zoom-max="15">
+				<caption k="name" font-size="22" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+			<rule e="node" k="place" v="country" zoom-min="4" zoom-max="8">
+				<caption k="name" font-size="24" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+            <rule e="node" k="place" v="state|region" zoom-min="9" zoom-max="8">
+				<caption k="name" font-size="23" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+            <rule e="node" k="place" v="county" zoom-min="10" zoom-max="12">
+				<caption k="name" font-size="23" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+            <rule e="node" k="place" v="sea|ocean|continent" zoom-max="12">
+				<caption k="name" font-size="24" fill="#454647" stroke="#fbfbfb" stroke-width="1.0" />
+			</rule>
+		</rule>
+	</rule>
+</rules>
